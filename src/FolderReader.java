@@ -30,7 +30,7 @@ public class FolderReader {
                     FileItem fileItem = new FileItem(file);
                     System.out.println(fileItem.getName());
                     fileItem.setName();
-
+                    fileItem.printImportantDetails();
                     // print file name
                 }
 

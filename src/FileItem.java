@@ -1,4 +1,6 @@
 import java.io.File;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class FileItem implements Directory {
     // leaf
@@ -29,6 +31,31 @@ public class FileItem implements Directory {
             System.out.println("Rename Failed!");
         }
 
+    }
+
+    public ArrayList<String> getImportantDetails() {
+        ArrayList<String> fullFileName = new ArrayList<String>(Arrays.asList(getName().split("_")));
+
+        ArrayList<String> importantDetails = new ArrayList<String>();
+
+        for (int x = 0; x < fullFileName.size(); x++) {
+
+            if ((x > 0) && (x < fullFileName.size() - 2)) {
+                importantDetails.add(fullFileName.get(x));
+            }
+        }
+
+        return importantDetails;
+    }
+
+    public void printImportantDetails() {
+        ArrayList<String> importantDetails = getImportantDetails();
+
+        /*
+         * for (String detail : importantDetails) { System.out.println(detail + " "); }
+         */
+        System.out.println("Important Details: \n");
+        System.out.println(getImportantDetails());
     }
 
     // get file extension?
