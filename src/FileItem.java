@@ -23,6 +23,9 @@ public class FileItem implements Directory {
         File oldFile = new File("lib/fileToRename/test-word.docx");
         File newFile = new File(fileName); // takes in file path
 
+        File f = new File("lib/renamedFiles");
+        f.mkdirs();
+
         isRenamed = oldFile.renameTo(newFile); // take in file , returns bool
 
         if (isRenamed) {

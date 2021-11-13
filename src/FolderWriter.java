@@ -7,17 +7,17 @@ public class FolderWriter {
 
     public void initialiseFolder() {
 
-        String folderPath = "lib/fileToRename/blahblah";
+        String folderPath = "lib/fileToRename/renamedFiles";
         File folder = new File(folderPath);
 
         if (!folder.exists()) {
             File file = new File(folderPath);
             file.mkdirs();
         }
-
+        /*
         String directoryName = "lib/fileToRename/folderTest";
         File file = new File(directoryName);
-        file.mkdirs();
+        file.mkdirs();*/
 
         /*
          * if (folder.exists()) { System.out.println("Folder exists"); } else {

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class CSVFileReader {
-    // Notes: last 2 Positions not being displayed
+      // Notes: last 2 Positions not being displayed
 
     public ArrayList<Student> readFile() {
 
