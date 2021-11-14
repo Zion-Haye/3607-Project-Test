@@ -20,7 +20,7 @@ public class CSVFileReader {
 
         Student student;
 
-        String filePath = "lib/filesToRename/Sample 3 CSV.csv";
+        String filePath = "lib/fileToRename/Sample 3 CSV.csv";
         String line = ""; // Line in csv File
         int counter = 1;
 
@@ -65,11 +65,6 @@ public class CSVFileReader {
                 }
 
                 counter++;
-            }
-            while (studentIterator.hasNext()){
-                Student test = studentIterator.next();
-                if (test != null)
-                    System.out.println("######" + test);
             }
             // return table;
             return studentLists;

@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class App {
+public class FileFixer {
     public static void main(String[] args) throws Exception {
         // System.out.println("Hello, World!");
 
