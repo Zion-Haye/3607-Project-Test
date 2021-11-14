@@ -15,7 +15,7 @@ public class CSVFileReader {
         // Array List of ArrayList
         // ArrayList < String[] > table = new ArrayList<String[]>();
         StudentCollection studentLists = new StudentCollection();
-        SIterator studentIterator = studentLists.createIterator();
+        IIterator studentIterator = studentLists.createIterator();
         //ArrayList<Student> studentData = new ArrayList<Student>();
 
         Student student;
@@ -65,6 +65,12 @@ public class CSVFileReader {
                 }
 
                 counter++;
+            }
+            br.close();
+            while (studentIterator.hasNext()){
+                Student test = (Student) studentIterator.next();
+                if (test != null)
+                    System.out.println("###" + test);
             }
             // return table;
             return studentLists;

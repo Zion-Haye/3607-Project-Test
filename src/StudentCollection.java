@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class StudentCollection implements SContainer {
+public class StudentCollection implements IContainer {
     private ArrayList<Student> students;
 
     public StudentCollection(){
@@ -12,12 +12,12 @@ public class StudentCollection implements SContainer {
     }
 
     @Override
-    public SIterator createIterator() {
+    public IIterator createIterator() {
         StudentIterator results = new StudentIterator();
         return results;
     }
 
-    private class StudentIterator implements SIterator{
+    private class StudentIterator implements IIterator{
         private int position=0;
 
         public boolean hasNext(){
@@ -30,7 +30,7 @@ public class StudentCollection implements SContainer {
         }
 
         @Override
-        public Student getStudent(String participantID, String fName, String lName) {
+        public Object getItem(String participantID, String fName, String lName) {
             for (Student test : students){
                 if (participantID.equals(test.getParticipantIdentifierNum())){
                     return test;
@@ -42,7 +42,7 @@ public class StudentCollection implements SContainer {
         }
 
         @Override
-        public Student next() {
+        public Object next() {
             if (this.hasNext()){
                 return students.get(position++);
             }else{

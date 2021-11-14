@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+//import java.util.ArrayList;
 
 public class FileFixer {
     public static void main(String[] args) throws Exception {
@@ -6,7 +6,7 @@ public class FileFixer {
 
         // CSV Reader
         CSVFileReader csvFileReader = new CSVFileReader();
-        StudentCollection studentData = csvFileReader.readFile();
+        StudentCollection studentData = csvFileReader.readFile();//?
 
         // Student Data Test
         //for (Student student : studentData) {
@@ -15,7 +15,7 @@ public class FileFixer {
 
         // Folder Reader
         FolderReader folderReader = new FolderReader();
-        folderReader.readFolder();
+        FileCollection files = folderReader.readFolder();//??? 
 
         // Make Folder Test
         FolderWriter folderWriter = new FolderWriter();
