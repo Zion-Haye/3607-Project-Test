@@ -42,10 +42,15 @@ public class FileItem implements Directory {
         ArrayList<String> importantDetails = new ArrayList<String>();
 
         for (int x = 0; x < fullFileName.size(); x++) {
-
+            /*
             if ((x > 0) && (x < fullFileName.size() - 2)) {
                 importantDetails.add(fullFileName.get(x));
+            }*/
+
+            if (x > 0) {
+                importantDetails.add(fullFileName.get(x));
             }
+
         }
 
         return importantDetails;
