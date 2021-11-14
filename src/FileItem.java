@@ -63,7 +63,7 @@ public class FileItem implements Directory {
          * for (String detail : importantDetails) { System.out.println(detail + " "); }
          */
         System.out.println("Important Details: \n");
-        System.out.println(getImportantDetails());
+        System.out.println(getImportantDetails() + "\n\n");
     }
 
     // get file extension?

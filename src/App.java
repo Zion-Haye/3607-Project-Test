@@ -6,12 +6,12 @@ public class App {
 
         // CSV Reader
         CSVFileReader csvFileReader = new CSVFileReader();
-        ArrayList<Student> studentData = csvFileReader.readFile();
+        StudentCollection studentData = csvFileReader.readFile();
 
         // Student Data Test
-        for (Student student : studentData) {
-            System.out.println(student.toString());
-        }
+        //for (Student student : studentData) {
+        //    System.out.println(student.toString());
+        //}
 
         // Folder Reader
         FolderReader folderReader = new FolderReader();

@@ -8,13 +8,15 @@ import java.util.Arrays;
 public class CSVFileReader {
       // Notes: last 2 Positions not being displayed
 
-    public ArrayList<Student> readFile() {
+    public StudentCollection readFile() {
 
         ArrayList<String> studentRecord; // ArrayList for individual Record
         // ArrayList<ArrayList<String>> table = new ArrayList<ArrayList<String>>(); //
         // Array List of ArrayList
         // ArrayList < String[] > table = new ArrayList<String[]>();
-        ArrayList<Student> studentData = new ArrayList<Student>();
+        StudentCollection studentLists = new StudentCollection();
+        SIterator studentIterator = studentLists.createIterator();
+        //ArrayList<Student> studentData = new ArrayList<Student>();
 
         Student student;
 
@@ -52,20 +54,25 @@ public class CSVFileReader {
                 // System.out.println("Test" + participantIDDetails.size());
 
                 // Skip Header Row
+                if (!(studentRecord.get(0).isEmpty() || studentRecord.get(1).isEmpty()))
                 if (counter > 1) {
                     ArrayList<String> participantIDDetails = new ArrayList<String>(
                             Arrays.asList(studentRecord.get(0).split("\\s+")));
                     // System.out.println("Test" + participantIDDetails.size());
 
                     student = new Student(participantIDDetails.get(1), studentRecord.get(1), studentRecord.get(2));
-                    studentData.add(student);
+                    studentLists.addToStudents(student);
                 }
 
                 counter++;
             }
-
+            while (studentIterator.hasNext()){
+                Student test = studentIterator.next();
+                if (test != null)
+                    System.out.println("######" + test);
+            }
             // return table;
-            return studentData;
+            return studentLists;
 
         } catch (FileNotFoundException e) {
             // Catch Error if the file is not found
