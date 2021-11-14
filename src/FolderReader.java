@@ -3,8 +3,9 @@ import java.io.FileNotFoundException;
 
 public class FolderReader {
 
-    public void readFolder() {
+    public FileCollection readFolder() {
         // Thoughts
+        FileCollection fileList = new FileCollection();
         // try catch error folder File Not Found Exception?
 
         // Create object and parse dolfer path
@@ -28,7 +29,9 @@ public class FolderReader {
                     // FileProcessor fileProcessor = new FileProcessor();
                     // fileProcessor.getFileName(file);
                     FileItem fileItem = new FileItem(file);
-                    
+                    if (file.getName().contains(".pdf")){
+                        fileList.addToFiles(fileItem);
+                    }
                     System.out.println(fileItem.getName());
                     fileItem.printImportantDetails();
                     // print file name
@@ -42,7 +45,13 @@ public class FolderReader {
         } else {
             System.out.println("Folder Does Not Exist.");
         }
-
+        IIterator fileIterator = fileList.createIterator();
+        while (fileIterator.hasNext()){
+                FileItem test = (FileItem) fileIterator.next();
+                if (test != null)
+                    System.out.println(test);
+        }
+        return fileList;
         // }catch(FileNotFoundException e){
         // e.printStackTrace();
         // }
