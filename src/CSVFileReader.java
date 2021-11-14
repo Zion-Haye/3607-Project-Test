@@ -20,7 +20,7 @@ public class CSVFileReader {
 
         Student student;
 
-        String filePath = "lib/TestData-txt.txt";
+        String filePath = "lib/filesToRename/Sample 3 CSV.csv";
         String line = ""; // Line in csv File
         int counter = 1;
 
