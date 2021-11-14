@@ -28,8 +28,8 @@ public class FolderReader {
                     // FileProcessor fileProcessor = new FileProcessor();
                     // fileProcessor.getFileName(file);
                     FileItem fileItem = new FileItem(file);
+                    
                     System.out.println(fileItem.getName());
-                    fileItem.setName();
                     fileItem.printImportantDetails();
                     // print file name
                 }
