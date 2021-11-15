@@ -29,12 +29,19 @@ public class FileCollection implements IContainer {
             }
         }
 
+        public Object getItem(Object obj){
+            Student student = (Student) obj;
+            FileItem test = (FileItem) getItemByID(student.getIdNumber());
+            if (test == null) test = (FileItem) getItemByName(student.getFirstName(), student.getLastName());
+            return test;
+        }
+
         @Override
-        public Object getItemByID(String participantID) {
+        private Object getItemID (String participantID) {
             
             for (FileItem test : files){
                 String testName = test.getName();
-                if (testName.equals(participantID))
+                if (testName.contains(participantID))
                     return test;
             }
             return null;
@@ -44,7 +51,8 @@ public class FileCollection implements IContainer {
         public Object getItemByName(String fName, String lName) {
             
             for (FileItem test : files){
-                if (test.getstudentNames().contains(fName) && test.getstudentNames().contains(lName)){
+                String testName = test.getName();
+                if (testName.contains(fName) && testName.contains(lName)){
                     return test;
                 }
             }
