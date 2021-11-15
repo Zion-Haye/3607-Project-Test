@@ -33,22 +33,28 @@ public class FileItem implements Directory {
         return assignmentFileName;
     }
 
-    public void setName() {
+    public void renameFile(String newFileName) {
         Boolean isRenamed;
-        String fileName = "lib/renamedFiles/test.docx";
-
-        File oldFile = new File("lib/fileToRename/test-word.docx");
-        File newFile = new File(fileName); // takes in file path
-
-        //File f = new File("lib/renamedFiles");
-        //f.mkdirs();
+        //String fileName = "lib/renamedFiles/test.docx";
+        
+        String seperator = File.separator;
+        String ogFileDirectory = "lib" + seperator + "fileToRename";
+        String newFileDirectory = ogFileDirectory + seperator + "renamedFiles";
+        File oldFile = new File(ogFileDirectory + seperator + getName());
+        File newFile = new File(newFileDirectory + seperator + newFileName + getAssignmentFileName()); // takes in file path
+        
+        
+        File f = new File(newFileDirectory);
+        f.mkdirs();
 
         isRenamed = oldFile.renameTo(newFile); // take in file , returns bool
 
         if (isRenamed) {
-            System.out.println("Rename Successful!");
+            System.out.println("Rename Successful!" + newFileName);
         } else {
             System.out.println("Rename Failed!");
+            System.out.println(ogFileDirectory + seperator + getName());
+            System.out.println(newFileDirectory + seperator + newFileName + getAssignmentFileName() + "\n");
         }
 
     }

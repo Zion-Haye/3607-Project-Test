@@ -18,11 +18,22 @@ public class Renamer {
         while (studentIterator.hasNext()){
             Student newStudent = (Student) studentIterator.next();
             FileItem newFileItem = (FileItem) fileIterator.getItem(newStudent);
-                                (newStudent.getIdNumber(), newStudent.getFirstName(), newStudent.getLastName());
+                                //(newStudent.getIdNumber(), newStudent.getFirstName(), newStudent.getLastName());
             
-            
+            if (newFileItem != null){
+                newFileItem.renameFile(newFileName(newStudent));
+            }else{
+                System.out.println("#########File not found");
+            }
             
         }
+    }
+
+    private String newFileName(Student stu){
+        String newFile = stu.getFullNameString() + "_";
+        newFile += stu.getParticipantIdentifierNum() + "_";
+        newFile += "assignsubmission_file_";
+        return newFile;
     }
 
 

@@ -34,7 +34,7 @@ public class FolderReader {
                         FileItem fileItem = new FileItem(file);
                         fileList.addToFiles(fileItem);
                         System.out.println("\n\n" + fileItem.getName());
-                    fileItem.printImportantDetails();
+                    //fileItem.printImportantDetails();
                     }
                     
                     // print file name

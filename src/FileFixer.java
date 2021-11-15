@@ -19,8 +19,11 @@ public class FileFixer {
         
         
         IIterator testIter = files.createIterator();
-        
-        System.out.print(testIter.getItem(new Student("601701", "*", "*")));
+        FileItem test = (FileItem) testIter.getItem(new Student("*", "Cory Chin Pan Tan", "*"));
+        System.out.print(test.getName());
+
+        Renamer fileRenamer = new Renamer(studentData, files);
+        fileRenamer.renameFiles();
         // Make Folder Test
         //FolderWriter folderWriter = new FolderWriter();
         //folderWriter.initialiseFolder();

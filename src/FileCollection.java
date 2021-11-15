@@ -32,7 +32,7 @@ public class FileCollection implements IContainer {
         public Object getItem(Object obj){
             Student student = (Student) obj;
             FileItem test = (FileItem) getItemByID(student.getParticipantIdentifierNum());
-            if (test == null) test = (FileItem) getItemByName(student.getFirstName(), student.getLastName());
+            if (test == null) test = (FileItem) getItemByName(student.getFullName());
             return test;
         }
 
@@ -48,13 +48,17 @@ public class FileCollection implements IContainer {
         }
 
 
-        private Object getItemByName(String fName, String lName) {
-            
+        private Object getItemByName(ArrayList<String> names) {
+            boolean equals;
             for (FileItem test : files){
+                equals = true;
                 String testName = test.getName();
-                if (testName.contains(fName) && testName.contains(lName)){
-                    return test;
-                }
+                for (String name : names)
+                    if (!testName.contains(name)){
+                        equals = false;
+                        break;
+                    }
+                if (equals) return test;
             }
             return null;
         }
