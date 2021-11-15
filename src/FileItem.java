@@ -58,12 +58,13 @@ public class FileItem implements Directory {
 
         //ArrayList<String> importantDetails = new ArrayList<String>();
         
+        
         int x;
-        for (x = 1; x < fullFileName.size()-2; x++) 
-            namesList.add(fullFileName.get(x));
+        for (x = 1; !NumChecker.isNumeric(fullFileName.get(x)); x++) namesList.add(fullFileName.get(x));
         
         id = fullFileName.get(x++);  //Participant id
-        assignmentFileName = fullFileName.get(x);
+        assignmentFileName = fullFileName.get(x++);
+        while (x < fullFileName.size()) assignmentFileName += "_" + fullFileName.get(x++);
 
     }
 
