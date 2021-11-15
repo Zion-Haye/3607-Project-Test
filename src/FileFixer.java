@@ -16,7 +16,9 @@ public class FileFixer {
         // Folder Reader
         FolderReader folderReader = new FolderReader();
         FileCollection files = folderReader.readFolder();//??? 
-
+        
+        
+            //IIterator = 
         // Make Folder Test
         //FolderWriter folderWriter = new FolderWriter();
         //folderWriter.initialiseFolder();

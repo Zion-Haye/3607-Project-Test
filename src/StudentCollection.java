@@ -30,17 +30,19 @@ public class StudentCollection implements IContainer {
         }
 
         @Override
-        public Object getItem(String participantID, String fName, String lName) {
+        public Object getItem (Object obj) {
+            int index = (int) obj;
+            return students.get(index);
+        }
+
+/*        public Object getItemByName(String fName, String lName) {
             for (Student test : students){
-                if (participantID.equals(test.getParticipantIdentifierNum())){
-                    return test;
-                }else if (fName.equals(test.getFirstName()) && lName.equals(test.getLastName())){
+                if (fName.equals(test.getFirstName()) && lName.equals(test.getLastName())){
                     return test;
                 }
             }
             return null;
-        }
-
+        }*/
         @Override
         public Object next() {
             if (this.hasNext()){

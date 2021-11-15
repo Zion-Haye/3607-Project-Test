@@ -62,7 +62,7 @@ public class FileItem implements Directory {
         for (x = 1; x < fullFileName.size()-2; x++) 
             namesList.add(fullFileName.get(x));
         
-        id = fullFileName.get(x++);//Participaant id
+        id = fullFileName.get(x++);  //Participant id
         assignmentFileName = fullFileName.get(x);
 
     }

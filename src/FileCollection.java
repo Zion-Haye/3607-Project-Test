@@ -37,7 +37,7 @@ public class FileCollection implements IContainer {
         }
 
         @Override
-        private Object getItemID (String participantID) {
+        private Object getItemByID (String participantID) {
             
             for (FileItem test : files){
                 String testName = test.getName();
