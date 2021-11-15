@@ -18,7 +18,9 @@ public class FileFixer {
         FileCollection files = folderReader.readFolder();//??? 
         
         
-            //IIterator = 
+        IIterator testIter = files.createIterator();
+        
+        System.out.print(testIter.getItem(new Student("601701", "*", "*")));
         // Make Folder Test
         //FolderWriter folderWriter = new FolderWriter();
         //folderWriter.initialiseFolder();

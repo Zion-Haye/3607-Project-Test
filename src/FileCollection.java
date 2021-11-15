@@ -31,12 +31,12 @@ public class FileCollection implements IContainer {
 
         public Object getItem(Object obj){
             Student student = (Student) obj;
-            FileItem test = (FileItem) getItemByID(student.getIdNumber());
+            FileItem test = (FileItem) getItemByID(student.getParticipantIdentifierNum());
             if (test == null) test = (FileItem) getItemByName(student.getFirstName(), student.getLastName());
             return test;
         }
 
-        @Override
+        
         private Object getItemByID (String participantID) {
             
             for (FileItem test : files){
@@ -48,7 +48,7 @@ public class FileCollection implements IContainer {
         }
 
 
-        public Object getItemByName(String fName, String lName) {
+        private Object getItemByName(String fName, String lName) {
             
             for (FileItem test : files){
                 String testName = test.getName();
