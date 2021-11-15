@@ -30,13 +30,21 @@ public class FileCollection implements IContainer {
         }
 
         @Override
-        public Object getItem(String participantID, String fName, String lName) {
-            String fileName;
+        public Object getItemByID(String participantID) {
+            
             for (FileItem test : files){
-                fileName = test.getName();
-                if (fileName.contains(participantID)){
+                String testName = test.getName();
+                if (testName.equals(participantID))
                     return test;
-                }else if (fileName.contains(fName) && fileName.contains(lName)){
+            }
+            return null;
+        }
+
+
+        public Object getItemByName(String fName, String lName) {
+            
+            for (FileItem test : files){
+                if (test.getstudentNames().contains(fName) && test.getstudentNames().contains(lName)){
                     return test;
                 }
             }

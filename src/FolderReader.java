@@ -10,6 +10,7 @@ public class FolderReader {
 
         // Create object and parse dolfer path
         String folderPath = "lib/fileToRename";
+        String folderPath2 = "lib/fileToRename2";
 
         // try{
 
@@ -28,12 +29,14 @@ public class FolderReader {
 
                     // FileProcessor fileProcessor = new FileProcessor();
                     // fileProcessor.getFileName(file);
-                    FileItem fileItem = new FileItem(file);
+                    
                     if (file.getName().contains(".pdf")){
+                        FileItem fileItem = new FileItem(file);
                         fileList.addToFiles(fileItem);
-                    }
-                    System.out.println(fileItem.getName());
+                        System.out.println("\n\n" + fileItem.getName());
                     fileItem.printImportantDetails();
+                    }
+                    
                     // print file name
                 }
 
@@ -46,12 +49,16 @@ public class FolderReader {
             System.out.println("Folder Does Not Exist.");
         }
         IIterator fileIterator = fileList.createIterator();
-        while (fileIterator.hasNext()){
+        /*while (fileIterator.hasNext()){
                 FileItem test = (FileItem) fileIterator.next();
                 if (test != null)
-                    System.out.println(test);
-        }
+                    System.out.println(test.getName());
+        }*/
+        /*FileItem test = (FileItem) fileIterator.getItem("41856", "Drew", "Jenkins");
+                if (test != null)
+                    System.out.println(test.getName());*/
         return fileList;
+        
         // }catch(FileNotFoundException e){
         // e.printStackTrace();
         // }

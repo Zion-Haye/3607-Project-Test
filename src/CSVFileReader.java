@@ -21,11 +21,13 @@ public class CSVFileReader {
         Student student;
 
         String filePath = "lib/fileToRename/Sample 3 CSV.csv";
+        String filePath2 = "lib/fileToRename/Sample 5 CSV.csv";
+
         String line = ""; // Line in csv File
         int counter = 1;
 
         try {
-            FileReader fr = new FileReader(filePath);
+            FileReader fr = new FileReader(filePath2);
             // Create File reader and pass filepath
 
             BufferedReader br = new BufferedReader(fr);

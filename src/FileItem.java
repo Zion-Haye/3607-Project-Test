@@ -5,15 +5,32 @@ import java.util.Arrays;
 public class FileItem implements Directory {
     // leaf
 
-    File file;
-    String extractedData;
+    private File file;
+    private String id;
+    private ArrayList<String> namesList;
+    private String assignmentFileName;
+    //String extractedData;
 
     public FileItem(File file) {
         this.file = file;
+        namesList = new ArrayList<String>();
+        getImportantDetails();
     }
 
     public String getName() {
         return file.getName();
+    }
+
+    public String getId() {
+        return id;
+    }
+    
+    public ArrayList<String> getstudentNames() {
+        return namesList;
+    }
+
+    public String getAssignmentFileName() {
+        return assignmentFileName;
     }
 
     public void setName() {
@@ -36,34 +53,29 @@ public class FileItem implements Directory {
 
     }
 
-    public ArrayList<String> getImportantDetails() {
+    private void getImportantDetails() {
         ArrayList<String> fullFileName = new ArrayList<String>(Arrays.asList(getName().split("_")));
 
-        ArrayList<String> importantDetails = new ArrayList<String>();
+        //ArrayList<String> importantDetails = new ArrayList<String>();
+        
+        int x;
+        for (x = 1; x < fullFileName.size()-2; x++) 
+            namesList.add(fullFileName.get(x));
+        
+        id = fullFileName.get(x++);//Participaant id
+        assignmentFileName = fullFileName.get(x);
 
-        for (int x = 0; x < fullFileName.size(); x++) {
-            /*
-            if ((x > 0) && (x < fullFileName.size() - 2)) {
-                importantDetails.add(fullFileName.get(x));
-            }*/
-
-            if (x > 0) {
-                importantDetails.add(fullFileName.get(x));
-            }
-
-        }
-
-        return importantDetails;
     }
 
     public void printImportantDetails() {
-        ArrayList<String> importantDetails = getImportantDetails();
-
-        /*
-         * for (String detail : importantDetails) { System.out.println(detail + " "); }
-         */
-        System.out.println("Important Details: \n");
-        System.out.println(getImportantDetails() + "\n\n");
+       String names = "";
+       for (String name : namesList) names += name + " ";
+        System.out.println( "Important Details: " +
+                            "\nID: " + id +
+                            "\nName: " + names +
+                            "\nOriginal File Name: " + assignmentFileName);
+        
+        //System.out.println(getImportantDetails() + "\n\n");
     }
 
     // get file extension?

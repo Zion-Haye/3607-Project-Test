@@ -5,7 +5,7 @@ public class FolderWriter {
     // Takes in collection of files
     // write to file.
 
-    public void initialiseFolder() {
+    public static void initialiseFolder() {
 
         String folderPath = "lib/fileToRename/renamedFiles";
         File folder = new File(folderPath);
@@ -14,6 +14,7 @@ public class FolderWriter {
             File file = new File(folderPath);
             file.mkdirs();
         }
+
         
         /*
         String directoryName = "lib/fileToRename/folderTest";
