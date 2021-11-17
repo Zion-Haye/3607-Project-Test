@@ -25,6 +25,9 @@ public class FileFixer {
 
         Renamer fileRenamer = new Renamer(studentIter, fileIter);
         fileRenamer.renameFiles();
+
+        FileProcessor.MissingFiles(studentIter);
+        
         // Make Folder Test
         //FolderWriter folderWriter = new FolderWriter();
         //folderWriter.initialiseFolder();
