@@ -1,19 +1,16 @@
 import java.io.File;
 
 public class Renamer {
-    StudentCollection students;
-    FileCollection files;
+    IIterator fileIterator;
+    IIterator studentIterator;
 
-    public Renamer(StudentCollection students, FileCollection files){
-        this.students = students;
-        this.files = files;
+    public Renamer(IIterator students, IIterator files){
+        fileIterator = files;
+        studentIterator = students;
     }
 
     public void renameFiles(){
         FolderWriter.initialiseFolder();
-
-        IIterator fileIterator = files.createIterator();
-        IIterator studentIterator = students.createIterator();
 
         while (studentIterator.hasNext()){
             Student newStudent = (Student) studentIterator.next();
@@ -22,9 +19,11 @@ public class Renamer {
             
             if (newFileItem != null){
                 newFileItem.renameFile(newFileName(newStudent));
+                newStudent.setFound(true);
             }else{
                 System.out.println("#########File not found");
             }
+            
             
         }
     }

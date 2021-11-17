@@ -8,9 +8,11 @@ public class Student {
     private String firstName;
     private String lastName;
     private String idNumber;
+    private boolean found;
 
     public Student(String participantIdentifierNum, String fullName, String idNumber) {
         this.participantIdentifierNum = participantIdentifierNum;
+        found = false;
         setNames(fullName);
         this.idNumber = idNumber;
         
@@ -24,6 +26,10 @@ public class Student {
 
         // Issues
         // Names with more than 2 names
+    }
+
+    public void setFound(boolean found){
+        this.found = found;
     }
 
     // Accessors
@@ -44,6 +50,10 @@ public class Student {
 
     public ArrayList<String> getFullName(){
         return fullName;
+    }
+
+    public boolean isFound(){
+        return found;
     }
 
     public String toString() {

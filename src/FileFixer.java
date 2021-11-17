@@ -7,6 +7,7 @@ public class FileFixer {
         // CSV Reader
         CSVFileReader csvFileReader = new CSVFileReader();
         StudentCollection studentData = csvFileReader.readFile();//?
+        IIterator studentIter = studentData.createIterator();
 
         // Student Data Test
         //for (Student student : studentData) {
@@ -16,13 +17,13 @@ public class FileFixer {
         // Folder Reader
         FolderReader folderReader = new FolderReader();
         FileCollection files = folderReader.readFolder();//??? 
+        IIterator fileIter = files.createIterator();
         
         
-        IIterator testIter = files.createIterator();
-        FileItem test = (FileItem) testIter.getItem(new Student("*", "Cory Chin Pan Tan", "*"));
-        System.out.print(test.getName());
+        //FileItem test = (FileItem) testIter.getItem(new Student("*", "Cory Chin Pan Tan", "*"));
+        //System.out.print(test.getName());
 
-        Renamer fileRenamer = new Renamer(studentData, files);
+        Renamer fileRenamer = new Renamer(studentIter, fileIter);
         fileRenamer.renameFiles();
         // Make Folder Test
         //FolderWriter folderWriter = new FolderWriter();
