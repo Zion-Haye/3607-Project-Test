@@ -48,7 +48,7 @@ public class FolderReader {
         } else {
             System.out.println("Folder Does Not Exist.");
         }
-        IIterator fileIterator = fileList.createIterator();
+        /*IIterator fileIterator = fileList.createIterator();
         /*while (fileIterator.hasNext()){
                 FileItem test = (FileItem) fileIterator.next();
                 if (test != null)

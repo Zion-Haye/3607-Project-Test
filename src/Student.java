@@ -5,8 +5,8 @@ public class Student {
 
     private String participantIdentifierNum;
     private ArrayList<String> fullName;
-    private String firstName;
-    private String lastName;
+    //private String firstName;
+    //private String lastName;
     private String idNumber;
     private boolean found;
 
